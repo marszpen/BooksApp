@@ -41,12 +41,23 @@ function initActions(){
     for(let book of books){
         book.addEventListener('dbclick', function(event){
         event.preventDefault();
-        book.classList.add(cover.favorite);
+        
         const bookId = book.getAttribute('data-id');
         favoriteBooks.push(bookId);
         console.log(book, favoriteBooks);
+
+        if(!favoriteBooks.includes(bookId)){
+            book.classList.add(cover.favorite);
+            favoriteBooks.push(bookId);
+        }
+        else if(favoriteBooks.includes(bookId)){
+            book.classList.remove(cover.favorite);
+            const removeId = favoriteBooks.indexOf(cover.favorite);
+            favoriteBooks.splice(removeId, 1);
+        }
     });
-    }
 }
+}
+
 render();
 initActions();
