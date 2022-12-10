@@ -2,21 +2,27 @@
 
 const select = {
     templateOf: {
-        book: '#template-book';
+        book: '#template-book',
+    },
     
-    booksPanel:
-        panel: ".books-panel";
-        list: ".book-list";
+    booksPanel: {
+        panel: ".books-panel",
+        list: ".books-list",
     }
 }
 
 
-const temlate = {
+const templates = {
     booksTemplate: Handelbars.complie(document.querySelector(select.templateOf.book).innerHTML),
 }
 
-/*function templateBook(id,data){
-const fromData = utils.createDOMFromHTML
+function render() {
+    for(let book of dataSource.books){
+        const generatedHTML = templates.book(dataSource);
+        const generatedDOM = utils.createDOMFromHTML(generatedHTML);
+        const bookContainer = document.querySelector(select.booksPanel.list);
+        bookContainer.appendChild(generatedDOM);
+    }
 }
 
-templateBook();*/
+render();
