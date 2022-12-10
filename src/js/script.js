@@ -6,11 +6,11 @@ const select = {
     },
     
     booksPanel: {
-        panel: ".books-panel",
-        list: ".books-list",
+        panel: '.books-panel',
+        list: '.books-list',
 
     book: {
-        image: ".book_image",
+        image: '.book__image',
     }
     }
 }
@@ -44,6 +44,7 @@ function initActions(){
         book.classList.add(cover.favorite);
         const bookId = book.getAttribute('data-id');
         favoriteBooks.push(bookId);
+        console.log(book, favoriteBooks);
     });
     }
 }
