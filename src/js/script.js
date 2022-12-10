@@ -9,10 +9,14 @@ const select = {
         panel: ".books-panel",
         list: ".books-list",
 
-    book:{
+    book: {
         image: ".book_image",
     }
     }
+}
+
+const cover = {
+    favorite: 'favorite',
 }
 
 
@@ -22,11 +26,26 @@ const templates = {
 
 function render() {
     for(let book of dataSource.books){
-        const generatedHTML = templates.books(book);
+        const generatedHTML = templates.booksTemplate(book);
         const generatedDOM = utils.createDOMFromHTML(generatedHTML);
         const bookContainer = document.querySelector(select.booksPanel.list);
         bookContainer.appendChild(generatedDOM);
     }
 }
+const favoriteBooks = [];
+console.log('favoriteBooks', favoriteBooks);
 
+function initActions(){
+    const books = document.querySelectorAll(select.book.image);
+
+    for(let book of books){
+        book.addEventListener('dbclick', function(event){
+        event.preventDefault();
+        book.classList.add(cover.favorite);
+        const bookId = book.getAttribute('data-id');
+        favoriteBooks.push(bookId);
+    });
+    }
+}
 render();
+initActions();
