@@ -134,3 +134,4 @@ class BookList {
 }
 
 const app = new BooksList();
+app.init();
