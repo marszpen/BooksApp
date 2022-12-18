@@ -25,7 +25,7 @@ const templates = {
   booksTemplate: Handlebars.compile(document.querySelector(select.templateOf.book).innerHTML),
 };
 
-class BookList {
+class BooksList {
     constructor(element){
         const thisBook = this;
         
