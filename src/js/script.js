@@ -37,7 +37,7 @@ class BooksList {
     render() {
         const thisBook= this;
         for(let book of dataSource.books){
-            const rating = book.determinateRatingBgc(book.rating);
+            const rating = thisbook.determinateRatingBgc(book.rating);
             console.log(ratingBgc);
             const ratingWidth = book.rating;
             console.log('ratingWidth', ratingWidth);
